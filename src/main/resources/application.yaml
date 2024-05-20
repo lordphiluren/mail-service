@@ -1,0 +1,33 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:29092
+    consumer:
+      group-id: "mail-1"
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: '*'
+  mail:
+    sender: artoymsushchenko@gmail.com
+    host: smtp.gmail.com
+    port: 587
+    username: artoymsushchenko@gmail.com
+    password: uapf iseq wavn axth
+    test-connection: true
+    properties:
+      mail:
+        smtp:
+          ssl:
+            trust: smtp.gmail.com
+          auth: true
+          starttls:
+            enable: true
+kafka-topic:
+  auth: auth-topic
+  notification: notification-topic
+server:
+  port: 8082
